@@ -34,3 +34,16 @@ after_script:
 cache:
   directories:
     - node_modules
+
+jobs:
+  include:
+    - stage: test
+      script: yarn test
+      script: yarn eslint
+    - starge: deploy
+      script: yarn deploy
+
+deploy:
+  provider: heroku
+  on
+    repo: Ulzahk/Practice-Travis-CI
